@@ -50,7 +50,12 @@
         <div class="navbar-nav flex-row">
           <!-- LOGGED-IN NAVIGATION -->
           <% if(me) { %>
+          <a class="nav-item nav-link ml-2 ml-md-0 mr-2 mr-md-0" href="/drivers">Drivers</a>
           <a class="nav-item nav-link ml-2 ml-md-0 mr-2 mr-md-0" href="/contact">Help</a>
+
+          <% if(me.isAdmin) { %>
+          <a class="nav-item nav-link ml-2 ml-md-0 mr-2 mr-md-0" href="/contact">Edit teampage</a>
+          <% } %>
           <!-- Only in desktop nav -->
           <div class="nav-item dropdown d-none d-sm-block">
             <a class="nav-link dropdown-toggle" id="header-account-menu-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
@@ -65,7 +70,6 @@
           <% } else { %>
           <!-- LOGGED-OUT NAVIGATION -->
           <a class="nav-item nav-link ml-2 ml-md-0 mr-2" href="/faq">FAQ</a>
-          <a class="nav-item nav-link ml-2 ml-md-0 mr-2" href="/drivers">Drivers</a>
           <a class="nav-item nav-link ml-2 ml-md-0 mr-2" href="/login">Log in</a>
           <!-- Only in desktop nav -->
           <div class="form-inline d-none ml-2 d-md-block" >
