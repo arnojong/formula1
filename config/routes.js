@@ -21,6 +21,13 @@ module.exports.routes = {
   'GET /legal/privacy':      { action:   'legal/view-privacy' },
   'GET /contact':            { action:   'view-contact' },
   'GET /drivers':            ['Driver.view', { action:   'view-drivers' } ],
+  'GET /list':               'PostController.viewAll',
+  'GET /my-posts':           'PostController.viewMine',
+  'GET /my-posts/edit/:id':  'PostController.edit',
+  'POST /post/update/:id':   'PostController.update',
+  'POST /post/publish/:id':  'PostController.publish',
+  'GET /post/add':           'PostController.add',
+  'POST /post/create':       'PostController.create',
 
   'GET /signup':             { action: 'entrance/view-signup' },
   'GET /email/confirm':      { action: 'entrance/confirm-email' },

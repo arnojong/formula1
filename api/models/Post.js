@@ -15,6 +15,19 @@ module.exports = {
 
     body: {
       type: 'string'
+    },
+
+    createdBy: {
+      type: 'string'
+    },
+
+    createdById: {
+      type: 'number'
+    },
+
+    published: {
+      type: 'boolean',
+      defaultsTo: false,
     }
 
   },

@@ -10,6 +10,12 @@
 
 module.exports.policies = {
 
+  PostController: {
+    '*': 'is-logged-in',
+    'add': 'is-admin',
+    'create': 'is-admin'
+  },
+
   '*': 'is-logged-in',
 
   // Bypass the `is-logged-in` policy for:

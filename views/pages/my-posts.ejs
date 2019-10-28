@@ -1,0 +1,26 @@
+<div id="list" v-cloak>
+
+  <div class="container">
+    <% posts.forEach(function(post){ %>
+      <div class="post">
+        <h3><%= post.title %></h3>
+        <h6>by <%= post.createdBy %></h6>
+
+        <p><%= post.body %></p>
+        <a class="button" href="/my-posts/edit/<%= post.id %>">Edit this post</a>
+        <form action="post/publish/<%= post.id %>" method="post">
+          <input type="hidden" name="_csrf" value="<%- _csrf %>" />
+          <button type="submit">
+            <% if(post.published){ %>
+              <%= "Unpublish" %>
+            <% } else { %>
+              <%= "Publish" %>
+            <% } %>
+          </button>
+        </form>
+      </div>
+    <% }) %>
+  </div>
+
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>
