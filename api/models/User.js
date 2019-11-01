@@ -56,8 +56,16 @@ email status until they click the link in the confirmation email.`
       example: 'Mary Sue van der McHenst'
     },
 
+    commentCount: {
+      type: 'number'
+    },
+
+    isPremium: {
+      type: 'boolean'
+    },
+
     isAdmin: {
-      type: 'boolean',
+      type: 'boolean'
     },
 
     isSuperAdmin: {

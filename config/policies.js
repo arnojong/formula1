@@ -16,6 +16,10 @@ module.exports.policies = {
     'create': 'is-admin'
   },
 
+  CommentController: {
+    '*': 'is-logged-in'
+  },
+
   '*': 'is-logged-in',
 
   // Bypass the `is-logged-in` policy for:

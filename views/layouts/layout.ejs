@@ -46,17 +46,19 @@
   <body>
     <div id="page-wrap">
       <header id="page-header" class="navbar navbar-expand-sm navbar-dark bg-dark flex-column flex-md-row justify-content-between">
-        <a class="navbar-brand mr-0" href="/"><img class="logo" alt="NEW_APP_NAME logo" src="/images/logo.png"/></a>
+        <a class="navbar-brand mr-0" href="/"><img class="logo" alt="F1 Forum logo" src="/images/logo.png"/></a>
         <div class="navbar-nav flex-row">
           <!-- LOGGED-IN NAVIGATION -->
           <% if(me) { %>
           <a class="nav-item nav-link ml-2 ml-md-0 mr-2 mr-md-0" href="/drivers">Drivers</a>
           <a class="nav-item nav-link ml-2 ml-md-0 mr-2 mr-md-0" href="/list">All posts</a>
-          <a class="nav-item nav-link ml-2 ml-md-0 mr-2 mr-md-0" href="/contact">Help</a>
 
           <% if(me.isAdmin) { %>
           <a class="nav-item nav-link ml-2 ml-md-0 mr-2 mr-md-0" href="/post/add">New post</a>
           <a class="nav-item nav-link ml-2 ml-md-0 mr-2 mr-md-0" href="/my-posts">My posts</a>
+          <% } %>
+          <% if(me.isSuperAdmin) { %>
+          <a class="nav-item nav-link ml-2 ml-md-0 mr-2 mr-md-0" href="/banhammer">Banhammer</a>
           <% } %>
           <!-- Only in desktop nav -->
           <div class="nav-item dropdown d-none d-sm-block">
@@ -102,14 +104,11 @@
 
       <footer id="page-footer" class="navbar navbar-light justify-content-between flex-row-reverse">
         <div class="nav">
-          <small class="nav-item"><a class="nav-link text-info" href="/contact">Contact<span class="d-none d-sm-inline"> us</span></a></small>
-          <small class="nav-item"><a class="nav-link text-info" href="/legal/terms">Terms<span class="d-none d-sm-inline"> of use</span></a></small>
-          <small class="nav-item"><a class="nav-link text-info" href="/legal/privacy">Privacy<span class="d-none d-sm-inline"> policy</span></a></small>
           <% if(me) { %>
           <small class="nav-item"><a class="nav-link text-info" href="/logout">Sign out</a></small>
           <% } %>
         </div>
-        <small class="copy">Copyright &copy; 2019 <a target="_blank" href="NEW_APP_COMPANY_ABOUT_HREF">NEW_APP_COMPANY_NAME</a>. <br class="xs-only"/>All rights reserved.</small>
+        <small class="copy">Copyright &copy; 2019 Arno Productions. <br class="xs-only"/>All rights reserved.</small>
       </footer>
     </div>
 
@@ -155,6 +154,7 @@
     <script src="/js/pages/account/edit-password.page.js"></script>
     <script src="/js/pages/account/edit-profile.page.js"></script>
     <script src="/js/pages/add.page.js"></script>
+    <script src="/js/pages/banhammer.page.js"></script>
     <script src="/js/pages/contact.page.js"></script>
     <script src="/js/pages/dashboard/welcome.page.js"></script>
     <script src="/js/pages/drivers.page.js"></script>
@@ -170,6 +170,7 @@
     <script src="/js/pages/legal/terms.page.js"></script>
     <script src="/js/pages/list.page.js"></script>
     <script src="/js/pages/my-posts.page.js"></script>
+    <script src="/js/pages/post.page.js"></script>
     <!--SCRIPTS END-->
 
     <% /* Display an overlay if the current browser is not supported.

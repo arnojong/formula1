@@ -40,6 +40,7 @@ module.exports = {
         title: req.body.title,
         body: req.body.body,
         createdBy: req.me.fullName,
+        createdByKey: req.me.fullName.replace(/\s+/g, '').toLowerCase(),
         createdById: req.me.id,
         published: req.body.published
       });
@@ -70,8 +71,54 @@ module.exports = {
       published: !post.published
     })
     res.redirect('/my-posts');
-  }
+  },
+  filter: async function (req, res) {
+    try {
+      let posts = [];
+      const team = req.query.team;
+      const query = req.query.query;
+      if (query && team) {
+        posts = await Post.find({
+          createdByKey: team,
+          published:true,
+          or : [
+            { title: { 'contains' : query } },
+            { body: { 'contains' : query } },
+          ]
+        });
+      } else if (query) {
+        posts = await Post.find({
+          published:true,
+          or : [
+            { title: { 'contains' : query } },
+            { body: { 'contains' : query } },
+            { createdBy: { 'contains' : query } },
+          ]
+        });
+      } else if (team) {
+        posts = await Post.find({
+          published: true,
+          createdByKey: team,
+        });
+      } else {
+        posts = await Post.find({published: true});
+      }
+      return res.view('pages/list', {posts});
+    } catch (err) {
+      return res.view('500', {data: err});
+    }
+  },
+  single: async function (req, res) {
+    try {
+      const post = await Post.findOne({id: req.params.id});
+      const comments = await Comment.find({onPost: req.params.id});
+      const user = await User.findOne({id: req.me.id});
+      return res.view('pages/post', {post, comments, user});
+    } catch (err) {
+      return res.view('500', {data: err});
+    }
 
+  }
 };
 
 

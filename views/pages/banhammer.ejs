@@ -1,0 +1,19 @@
+<div id="banhammer" v-cloak>
+
+  <div class="container">
+
+    <% users.forEach(function(user){ %>
+      <div class="user" style="margin-bottom: 40px;">
+        <h3><%= user.fullName %></h3>
+        <h4><%= user.emailAddress %></h4>
+        <h5>Amount of comments: <%= user.commentCount %></h5>
+        <a href="/delete/<%= user.id %>">
+          <h5 style="margin-left: 20px;">Ban <%= user.fullName %> forever!</h3>
+        </a>
+      </div>
+    <% }) %>
+
+  </div>
+
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

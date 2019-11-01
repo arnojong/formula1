@@ -1,16 +1,16 @@
 module.exports = {
 
 
-  friendlyName: 'View post',
+  friendlyName: 'View banhammer',
 
 
-  description: 'Display "Post" page.',
+  description: 'Display "Banhammer" page.',
 
 
   exits: {
 
     success: {
-      viewTemplatePath: 'pages/post'
+      viewTemplatePath: 'pages/banhammer'
     }
 
   },

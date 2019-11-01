@@ -1,8 +1,28 @@
 <div id="list" v-cloak>
 
   <div class="container">
+    <form action="/list/filter" method="get">
+      <select name="team">
+        <option value="" selected="selected" hidden="hidden">Select a team to filter</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="ferrari">Ferrari</option>
+        <option value="redbull">Red Bull</option>
+        <option value="mclaren">McLaren</option>
+        <option value="renault">Renault</option>
+        <option value="tororosso">Toro Rosso</option>
+        <option value="racingpoint">Racing Point</option>
+        <option value="alfaromeo">Alfa Romeo</option>
+        <option value="haas">Haas</option>
+        <option value="williams">Williams</option>
+      </select>
+      <input type="text" name="query" placeholder="Search for title, text, or author"/>
+      <input type="submit" value="Click here to filter"/>
+    </form>
+
     <% posts.forEach(function(post){ %>
-    <h3><%= post.title %></h3>
+    <a href="/post/<%= post.id %>">
+      <h3><%= post.title %></h3>
+    </a>
     <h6>by <%= post.createdBy %></h6>
 
     <p><%= post.body %></p>

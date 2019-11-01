@@ -1,5 +1,5 @@
 /**
- * Post.js
+ * Comment.js
  *
  * @description :: A model definition represents a database table/collection.
  * @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
@@ -9,28 +9,25 @@ module.exports = {
 
   attributes: {
 
-    title: {
-      type: 'string'
-    },
-
     body: {
       type: 'string'
     },
 
-    createdBy: {
-      type: 'string'
-    },
-    createdByKey: {
-      type: 'string'
-    },
-
-    createdById: {
+    onPost: {
       type: 'number'
     },
 
-    published: {
+    isItalic: {
       type: 'boolean',
-      defaultsTo: false,
+      defaultsTo: false
+    },
+
+    commentedBy: {
+      type: 'string'
+    },
+
+    commentedById: {
+      type: 'number'
     }
 
   },
