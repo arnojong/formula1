@@ -24,6 +24,10 @@ module.exports.policies = {
     '*': 'is-logged-in'
   },
 
+  DriverController: {
+    '*': 'is-logged-in'
+  },
+
   UserController: {
     '*': 'is-super-admin'
   },
