@@ -13,11 +13,19 @@ module.exports.policies = {
   PostController: {
     '*': 'is-logged-in',
     'add': 'is-admin',
-    'create': 'is-admin'
+    'edit': 'is-admin',
+    'viewMine': 'is-admin',
+    'create': 'is-admin',
+    'update': 'is-admin',
+    'publish': 'is-admin',
   },
 
   CommentController: {
     '*': 'is-logged-in'
+  },
+
+  UserController: {
+    '*': 'is-super-admin'
   },
 
   '*': 'is-logged-in',
@@ -26,11 +34,5 @@ module.exports.policies = {
   'entrance/*': true,
   'account/logout': true,
   'view-homepage-or-redirect': true,
-  'view-faq': true,
-  'view-contact': true,
-  'view-drivers': true,
-  'legal/view-terms': true,
-  'legal/view-privacy': true,
-  'deliver-contact-form-message': true,
 
 };

@@ -51,14 +51,12 @@ module.exports = {
   },
   update: async function(req, res) {
     try {
-      console.log('hier wel');
       await Post.updateOne({ id: req.params.id })
       .set({
         title: req.body.title,
         body: req.body.body,
         published: req.body.published
       });
-      console.log('hier ook');
       res.redirect('/my-posts');
     } catch (err) {
       return res.view('500', {data: err});

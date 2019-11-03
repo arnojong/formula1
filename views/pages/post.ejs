@@ -13,7 +13,7 @@
 
       <form action="comment/<%= post.id %>" method="post">
         <input type="hidden" name="_csrf" value="<%- _csrf %>" />
-        <textarea name="comment" id="" cols="30" rows="10"></textarea>
+        <textarea name="comment" id="" cols="30" rows="10" required></textarea>
         <% if(user.isPremium) { %>
           <input type="checkbox" name="italic" value="true">
           <label for="italic">Check the box to make your comment italic</label>
